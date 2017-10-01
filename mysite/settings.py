@@ -24,7 +24,7 @@ SECRET_KEY = 'e#$qw)o$(dc%$njplqkgx)!&ckne7)57-2@ng5!2^&m1p734i5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["minikaggle.herokuapp.com"]
 
 # LOGIN URLS
 LOGIN_URL = "/account/login/"
