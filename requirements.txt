@@ -8,3 +8,4 @@ pandas==0.20.3
 gunicorn
 psycopg2==2.7.3.1
 whitenoise
+dj-database-url==0.4.2

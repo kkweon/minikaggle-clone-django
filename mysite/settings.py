@@ -134,15 +134,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dco8b4fsotjl2o',
-        'USER': 'pmjbgluagjgvet',
-        'PASSWORD': 'a5a745099c93abf15e23e95cd4228d82c83d6da0a3371e7c0d7610c3c8f9431f',
-        'HOST': 'ec2-107-21-109-15.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config()
 }
 
 # Password validation
