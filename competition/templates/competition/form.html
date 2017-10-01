@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data" class="competition-form">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <input class="btn btn-primary" type="submit" value="{{ button_name }}" />
+    <a class="btn btn-danger" href="{% url 'competition:list'%}">Cancel</a>
+</form>
+{% endblock %}

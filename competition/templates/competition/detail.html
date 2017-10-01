@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load markdown_deux_tags %}
+
+{% block content %}
+
+<div class="competition-detail">
+    <h2 class="display-5"> {{ obj.title }}
+        {% if request.user == obj.user %}
+        <a href="{% url 'competition:update' obj.pk %}">edit</a>
+        {% endif %}
+    </h2>
+    <p class="lead author d-flex justify-content-between">
+        <span class="p-1">Posted by {{ obj.user.username }}</span>
+        <span class="pub-date p-1">{{ obj.timestamp|timesince }} ago</span>
+    </p>
+    <hr/>
+    <div class="lead description">
+        {{ obj.description|markdown|linebreaks }}
+    </div>
+
+    <div class="file">
+        <ul>
+            <li>
+                Training data: <a href="{{ obj.get_training_data }}">Download</a>
+            </li>
+
+            <li>
+                Test data: <a href="{{ obj.get_test_data }}">Download</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="submission">
+        <header>
+            <p class="lead">
+                Submit your csv files
+            </p>
+        </header>
+        {% if messages %}
+        <section class="message">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </section>
+        {% endif %}
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input name="csv_file" type="file" accept=".csv" required />
+            <input class="btn btn-primary" type="submit" value="Submit" />
+        </form>
+    </div>
+
+    <div class="leaderboard">
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="rank-col">Rank</th>
+                    <th>User</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for rank in obj.rank_set.all %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ rank.user.username }}</td>
+                    <td>{{ rank.score|floatformat:5 }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="create-competition">
+    <h2 class="display-8">
+    <a href="{% url 'competition:create' %}">Create a new competition</a>
+    </h2>
+</div>
+
+{% for comp in objects %}
+<div class="card text-center">
+    <div class="card-header">
+        Featured
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">
+            {{ comp.title }}
+        </h4>
+        <p class="card-text">
+            {{ comp.description }}
+        </p>
+        <a href="{% url 'competition:detail' comp.id %}" class="btn btn-primary">Join the competition</a>
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+        {{ comp.timestamp|timesince }}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

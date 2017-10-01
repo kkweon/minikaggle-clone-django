@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if form.errors %}
+{% load crispy_forms_tags %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+<div class="login-form">
+    <form method="post" action="{% url 'account:login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Register" class="btn btn-primary" />
+        <input type="hidden" name="next" value="{{ next }}" />
+        {# Assumes you setup the password_reset view in your URLconf #}
+        <a href="{% url 'account:password_reset' %}">Lost password?</a>
+    </form>
+</div>
+{% endblock %}

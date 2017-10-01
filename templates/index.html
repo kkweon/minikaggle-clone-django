@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron my-jumbotron">
+    <h1 class="display-3">Mini Kaggle</h1>
+    <p class="lead">
+        You may register to view the competitions
+    </p>
+    <p class="signup-btn">
+        <a class="btn btn-lg btn-primary" href="{% url 'account:register' %}" role="button">Sign up</a>
+    </p>
+</div>
+{% endblock %}

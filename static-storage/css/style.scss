@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 20px;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.register-form form,
+.login-form form {
+    margin: 5% 30% 0 30%;
+
+    input[type=submit] {
+        width: 100px;
+    }
+}
+
+.my-jumbotron {
+    width: 60%;
+    margin: 10% 0 10% 20%;
+}
+.signup-btn {
+    margin-top: 7%;
+}
+
+.rank-col {
+    width: 10%;
+}
+
+.submission {
+    border: 1px solid #696969;
+    width: 70%;
+    margin: 5% auto;
+    padding: 3%;
+}
+
+.competition-detail {
+    width: 70%;
+    h2 {
+        margin-top: 3%;
+    }
+    margin-left: 15%;
+}
+
+.create-competition {
+    background-color: #D3d3d3;
+    padding: 1%;
+    h2 {
+        text-align: center;
+    }
+}
+.competition-form {
+    width: 50%;
+    margin-left: 25%;
+}
+
+li.error {
+    color: #Ff0000;
+}
+
+div.card {
+    margin-bottom: 5%;
+}
