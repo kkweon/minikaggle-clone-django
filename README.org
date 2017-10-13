@@ -1,0 +1,18 @@
+* Mini Kaggle Clone
+
+- Users can create a competition
+[[./readme_assets/create_competition.png]]
+- Other users can join the competition
+[[./readme_assets/participate_competition.png]]
+
+
+- Demo is hosted at http://minikaggle.herokuapp.com/
+
+* Build
+
+#+BEGIN_SRC bash
+docker-compose run web python manage.py makemigrations
+docker-compose run web python manage.py migrate
+docker-compose run web python manage.py collectstatic
+docker-compose up
+#+END_SRC
