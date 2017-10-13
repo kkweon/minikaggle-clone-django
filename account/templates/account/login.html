@@ -18,7 +18,7 @@
     <form method="post" action="{% url 'account:login' %}">
         {% csrf_token %}
         {{ form|crispy }}
-        <input type="submit" value="Register" class="btn btn-primary" />
+        <input type="submit" value="Login" class="btn btn-primary" />
         <input type="hidden" name="next" value="{{ next }}" />
         {# Assumes you setup the password_reset view in your URLconf #}
         <a href="{% url 'account:password_reset' %}">Lost password?</a>
